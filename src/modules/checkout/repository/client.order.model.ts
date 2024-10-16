@@ -1,4 +1,4 @@
-import { Column, Model, PrimaryKey, Table } from "sequelize-typescript";
+import { Column, Model, PrimaryKey, Table, DataType } from "sequelize-typescript";
 
 @Table({
     tableName: 'client_order',
@@ -7,15 +7,15 @@ import { Column, Model, PrimaryKey, Table } from "sequelize-typescript";
 export default class ClientOrder extends Model{
 
     @PrimaryKey
-    @Column({allowNull: false})
+    @Column({allowNull: false, type: DataType.STRING})
     declare id: string;
     
-    @Column({allowNull: false})
+    @Column({allowNull: false, type: DataType.STRING})
     declare name: string;
     
-    @Column({allowNull: false})
+    @Column({allowNull: false, type: DataType.STRING})
     declare email: string;
     
-    @Column({allowNull: false})
+    @Column({allowNull: false, type: DataType.STRING})
     declare document: string;
 }

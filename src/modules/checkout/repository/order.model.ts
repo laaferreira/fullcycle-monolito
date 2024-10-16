@@ -1,4 +1,4 @@
-import {Table, Model, PrimaryKey, Column, HasMany, ForeignKey, BelongsTo } from "sequelize-typescript";
+import {Table, Model, PrimaryKey, Column, HasMany, ForeignKey, BelongsTo, DataType } from "sequelize-typescript";
 import ClientOrder from "./client.order.model";
 import ProductOrder from "./product.order.model";
 
@@ -9,7 +9,7 @@ import ProductOrder from "./product.order.model";
 export default class OrderModel extends Model{
 
     @PrimaryKey
-    @Column({allowNull: false})
+    @Column({allowNull: false, type: DataType.STRING})
     declare id: string;
 
     @ForeignKey(() => ClientOrder)

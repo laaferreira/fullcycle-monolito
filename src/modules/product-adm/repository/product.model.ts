@@ -1,4 +1,4 @@
-import { Column, Model, PrimaryKey, Table } from "sequelize-typescript";
+import { Column, Model, PrimaryKey, Table, DataType } from "sequelize-typescript";
 
 @Table({
   tableName: "products",
@@ -6,27 +6,27 @@ import { Column, Model, PrimaryKey, Table } from "sequelize-typescript";
 })
 export default class ProductModel extends Model {
   @PrimaryKey
-  @Column({ allowNull: false })
-  id: string;
+  @Column({ allowNull: false, type: DataType.STRING})
+  declare id: string;
 
-  @Column({ allowNull: false })
+  @Column({ allowNull: false, type: DataType.STRING})
   name: string;
 
-  @Column({ allowNull: false })
+  @Column({ allowNull: false, type: DataType.STRING})
   description: string;
 
-  @Column({ allowNull: false })
+  @Column({ allowNull: false, type: DataType.NUMBER})
   purchasePrice: number;
   
-  @Column({allowNull: true})
+  @Column({allowNull: true, type: DataType.NUMBER})
   declare salesPrice: number;
 
-  @Column({ allowNull: false })
+  @Column({ allowNull: false, type: DataType.NUMBER})
   stock: number;
 
-  @Column({ allowNull: false })
-  createdAt: Date;
+  @Column({ allowNull: false, type: DataType.DATE})
+  declare createdAt: Date;
 
-  @Column({ allowNull: false })
-  updatedAt: Date;
+  @Column({ allowNull: false, type: DataType.DATE})
+  declare updatedAt: Date;
 }

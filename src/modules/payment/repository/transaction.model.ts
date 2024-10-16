@@ -1,4 +1,4 @@
-import { Column, Model, PrimaryKey, Table } from "sequelize-typescript";
+import { Column, Model, PrimaryKey, Table, DataType } from "sequelize-typescript";
 
 @Table({
   tableName: "transactions",
@@ -6,21 +6,21 @@ import { Column, Model, PrimaryKey, Table } from "sequelize-typescript";
 })
 export default class TransactionModel extends Model {
   @PrimaryKey
-  @Column({ allowNull: false })
-  id: string;
+  @Column({ allowNull: false, type: DataType.STRING})
+  declare id: string;
 
-  @Column({ allowNull: false, field: "order_id" })
+  @Column({ allowNull: false, field: "order_id", type: DataType.STRING})
   orderId: string;
 
-  @Column({ allowNull: false })
+  @Column({ allowNull: false, type: DataType.NUMBER})
   amount: number;
 
-  @Column({ allowNull: false })
+  @Column({ allowNull: false, type: DataType.STRING})
   status: string;
 
-  @Column({ allowNull: false, field: "created_at" })
-  createdAt: Date;
+  @Column({ allowNull: false, field: "created_at", type: DataType.DATE})
+  declare createdAt: Date;
 
-  @Column({ allowNull: false, field: "updated_at" })
-  updatedAt: Date;
+  @Column({ allowNull: false, field: "updated_at", type: DataType.DATE})
+  declare updatedAt: Date;
 }
