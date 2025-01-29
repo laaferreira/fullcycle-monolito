@@ -26,7 +26,7 @@ describe('Integration test checkout api', () => {
     sequelize = new Sequelize({
       dialect: 'sqlite',
       storage: ':memory:',
-      logging: true,
+      logging: false,
     });
     sequelize.addModels([
       ClientModel,
@@ -63,7 +63,6 @@ describe('Integration test checkout api', () => {
       state: 'State',
       zipCode: '12345678',
     });
-    console.log('client', client.body);
 
     const product = await request(app).post('/product').send({
       id: '1',
@@ -72,15 +71,13 @@ describe('Integration test checkout api', () => {
       purchasePrice: 100,
       stock: 10,
     });
-    console.log('product', product.body);
 
     const output = await request(app).post('/checkout').send({
       id: '1',
       clientId: client.body.id,
       products: [{ productId: product.body.id }],
     });
-    console.log('OUTPUT', output.body);
 
-    // expect(output.status).toEqual(200);
+     expect(output.status).toEqual(200);
   });
 });

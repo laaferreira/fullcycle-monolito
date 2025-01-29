@@ -24,7 +24,7 @@ export class OrderModel extends Model {
   declare clientId: string
 
   @BelongsTo(() => ClientModel)
-  declare client: Awaited<ClientModel>
+  declare client: ClientModel
 
   @HasMany(() => ProductModel)
   declare items: Awaited<ProductModel[]>

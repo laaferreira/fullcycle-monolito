@@ -6,11 +6,17 @@ import { OrderModel } from "./OrderModel"
 import { ProductModel } from "./ProductModel"
 
 export class CheckoutRepository implements CheckoutGatewayInterface {
+
   async addOrder(order: OrderCheckout): Promise<void> {
-    console.log('order', order)
+
     const input = {
       id: order.id.id,
-      clientId: order.client.id.id,
+      client: {
+        id: order.client.id.id,
+        name: order.client.name,
+        document: order.client.document,
+        email: order.client.email
+     },
       items: order.products.map(item => ({
         id: item.id.id,
         orderId: order.id.id,
@@ -20,6 +26,8 @@ export class CheckoutRepository implements CheckoutGatewayInterface {
       })),
       status: order.status,
     };
+
+try{
     await OrderModel.create(
       input,
       {
@@ -27,9 +35,17 @@ export class CheckoutRepository implements CheckoutGatewayInterface {
           {
             model: ProductModel
           },
+          {
+            model: ClientModel
+          },
         ]
       }
     )
+
+  } catch (error) {
+    console.log(error);
+    throw error
+  }
   }
 
   async findOrder(id: string): Promise<OrderCheckout | null> {

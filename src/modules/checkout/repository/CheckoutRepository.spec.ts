@@ -32,7 +32,7 @@ const address = new Address({
 });
 
 const client = new ClientCheckoutEntity({
-  id: new Id('1'),
+  id: new Id('2'),
   name: 'Client',
   email: 'test@test.com',
   document: '000.000.000-00',
@@ -69,13 +69,13 @@ describe('Checkout Repository unit test', () => {
   it('Should be able to place an order', async () => {
     const checkoutRepository = new CheckoutRepository();
 
-    await ClientModel.create({
-      id: client.id.id,
-      name: client.name,
-      email: client.email,
-      document: client.document,
-      address: client.address,
-    });
+    //await ClientModel.create({
+    //  id: client.id.id,
+    //  name: client.name,
+    //  email: client.email,
+    //  document: client.document,
+    //  address: client.address,
+    //});
 
     await checkoutRepository.addOrder(order);
 

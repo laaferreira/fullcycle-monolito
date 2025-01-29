@@ -7,7 +7,7 @@ const checkoutFacade = CheckoutFacadeFactory.create();
 
 checkoutRouter.post("/", async (req: Request, res: Response) => {
   try {
-    console.log(':::INPUT API:::', req.body);
+
     const input: InputPlaceOrderCheckoutFacadeDto = {
       id: req.body.id,
       clientId: req.body.clientId,
@@ -17,9 +17,9 @@ checkoutRouter.post("/", async (req: Request, res: Response) => {
         }
       ),
     };
-    console.log(':::INPUT API TRANSFORMED:::', input)
+   
     const outputCheckout = await checkoutFacade.placeOrder(input);
-    console.log(':::OUTPUT API:::', outputCheckout);
+   
     const output: OutputPlaceOrderCheckoutFacadeDto = {
       id: outputCheckout.id,
       invoiceId: outputCheckout.invoiceId,

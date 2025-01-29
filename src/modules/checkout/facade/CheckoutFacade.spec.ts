@@ -23,9 +23,9 @@ describe('Integration test checkout facade', () => {
     });
 
     sequelize.addModels([
+      ClientModel,
       OrderModel,
       ProductModel,
-      ClientModel,
       ProductAdminModel,
       ProductStoreCatalogModel,
       TransactionModel,
@@ -40,7 +40,8 @@ describe('Integration test checkout facade', () => {
     await sequelize.close();
   });
 
-  it.skip('Should add an order', async () => {
+  it('Should add an order', async () => {
+
     const clientAdminFacade = ClientAdminFacadeFactory.create();
     const inputClientAdmin = {
       id: '1',
@@ -54,8 +55,10 @@ describe('Integration test checkout facade', () => {
       state: 'State',
       zipCode: '12345678',
     };
+
     await clientAdminFacade.add(inputClientAdmin);
     const clientAdmin = await clientAdminFacade.find({ id: inputClientAdmin.id });
+
 
     const productAdminFacade = ProductAdminFacadeFactory.create();
     const inputProductAdmin = {
@@ -65,6 +68,7 @@ describe('Integration test checkout facade', () => {
       purchasePrice: 100,
       stock: 10,
     };
+  
     await productAdminFacade.addProduct(inputProductAdmin);
 
     const productStoreCatalogFacade = ProductStoreCatalogFacadeFactory.create();
@@ -78,9 +82,9 @@ describe('Integration test checkout facade', () => {
     const output = await checkoutFacade.placeOrder({
       id: '1',
       clientId: clientAdmin?.id,
-      products,
-    });
+     products,
+   });
 
-    console.log(output);
-  });
+  
+  }, 50000);
 });
