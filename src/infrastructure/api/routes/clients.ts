@@ -1,6 +1,6 @@
 import { Request, Response, Router } from "express";
-import { ClientAdminFacadeFactory } from "../modules";
-import { InputAddClientAdminDto, OutputFindClientAdminDto } from "../modules/clientAdmin/facade/ClientAdminFacadeDto";
+import { ClientAdminFacadeFactory } from "../../../modules/clientAdmin/factory/ClientAdminFacadeFactory";
+import { InputAddClientAdminDto, OutputFindClientAdminDto } from "../../../modules/clientAdmin/facade/ClientAdminFacadeDto";
 
 export const clientRouter = Router();
 const clientFacade = ClientAdminFacadeFactory.create();

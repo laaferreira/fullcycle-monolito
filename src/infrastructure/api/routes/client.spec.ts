@@ -2,8 +2,8 @@ import express, { Express } from 'express';
 import { Sequelize } from 'sequelize-typescript';
 import { Umzug } from 'umzug';
 import request from 'supertest';
-import { migrator } from '../test-migrations/config-migrations/migrator';
-import { ClientAdminModel } from '../modules';
+import { migrator } from '../../../test-migrations/config-migrations/migrator';
+import { ClientAdminModel } from '../../../modules/clientAdmin/repository/ClientAdminModel';
 import { clientRouter } from './clients';
 
 describe('Integration test Client api', () => {

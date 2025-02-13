@@ -2,10 +2,10 @@ import express, { Express } from 'express';
 import { productRouter } from './product';
 import { Sequelize } from 'sequelize-typescript';
 import { Umzug } from 'umzug';
-import { ProductAdminModel } from '../modules/productAdmin/repository';
+import { ProductAdminModel } from '../../../modules/productAdmin/repository';
 import request from 'supertest';
-import { migrator } from '../test-migrations/config-migrations/migrator';
-import { ProductStoreCatalogModel } from '../modules';
+import { migrator } from '../../../test-migrations/config-migrations/migrator';
+import { ProductStoreCatalogModel } from '../../../modules/storeCatalog/repository/ProductStoreCatalogModel';
 
 describe('Integration test product api', () => {
   const app: Express = express();

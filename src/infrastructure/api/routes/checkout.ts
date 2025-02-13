@@ -1,6 +1,6 @@
 import { Request, Response, Router } from "express";
-import { CheckoutFacadeFactory } from "../modules";
-import { InputPlaceOrderCheckoutFacadeDto, OutputPlaceOrderCheckoutFacadeDto } from "../modules/checkout/facade/CheckoutFacadeDto";
+import { CheckoutFacadeFactory } from "../../../modules/checkout/factory/CheckoutFacadeFactory";
+import { InputPlaceOrderCheckoutFacadeDto, OutputPlaceOrderCheckoutFacadeDto } from "../../../modules/checkout/facade/CheckoutFacadeDto";
 
 export const checkoutRouter = Router();
 const checkoutFacade = CheckoutFacadeFactory.create();

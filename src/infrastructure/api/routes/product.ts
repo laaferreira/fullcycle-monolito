@@ -1,8 +1,8 @@
 import { Request, Response, Router } from "express";
-import { ProductAdminFacadeFactory } from "../modules/productAdmin/factory";
-import { InputAddProductAdminFacadeDto } from "../modules/productAdmin/facade/ProductAdminFacadeDto";
-import { ProductStoreCatalogFacadeFactory } from "../modules/storeCatalog/factory";
-import { OutputFindProductStoreCatalogFacadeDto } from "../modules/storeCatalog/facade/ProductStoreCatalogFacadeDto";
+import { ProductAdminFacadeFactory } from "../../../modules/productAdmin/factory/ProductAdminFacadeFactory";
+import { InputAddProductAdminFacadeDto } from "../../../modules/productAdmin/facade/ProductAdminFacadeDto";
+import { ProductStoreCatalogFacadeFactory } from "../../../modules/storeCatalog/factory/ProductStoreCatalogFacadeFactory";
+import { OutputFindProductStoreCatalogFacadeDto } from "../../../modules/storeCatalog/facade/ProductStoreCatalogFacadeDto";
 
 export const productRouter = Router();
 const productAdminFacade = ProductAdminFacadeFactory.create();

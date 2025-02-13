@@ -23,17 +23,17 @@
   "scripts": {
     "test": "yarn tsc --noEmit && jest",
     "tsc": "tsc",
-    "dev": "nodemon src/infra/api/server.ts",
+    "dev": "nodemon src/infrastructure/api/server.ts",
     "migrate": "node -r ts-node/register/transpile-only ./src/test-migrations/config-migrations/migrator-cli.ts"
   },
   "dependencies": {
     "dotenv": "^16.3.1",
-    "express": "^4.18.2",
+    "express": "^4.21.2",
     "jstoxml": "^3.2.8",
     "nodemon": "^3.0.1",
     "reflect-metadata": "^0.1.13",
     "sequelize": "^6.32.1",
-    "sequelize-typescript": "^2.1.5",
+    "sequelize-typescript": "^2.1.6",
     "sqlite3": "^5.1.6",
     "study-full-cycle-3-0-sistemas-monoliticos": "file:",
     "umzug": "^3.3.1",
